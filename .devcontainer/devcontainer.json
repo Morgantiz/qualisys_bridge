@@ -1,0 +1,17 @@
+{
+  "dockerComposeFile": [
+    "../docker/docker-compose.yml"
+  ],
+  "service": "qualisys",
+  "workspaceFolder": "/qualisys_ws",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools-extension-pack",
+        "xaver.clang-format",
+        "ms-azuretools.vscode-docker",
+      ],
+    }
+  }
+}

@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  qualisys:
+    image: qualisys
+    container_name: qualisys
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    tty: true
+    stdin_open: true
+    privileged: true
+    environment:
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+    volumes:
+      - ../src:/qualisys_ws/src/qualisys_bridge/src
+      - ../include:/qualisys_ws/src/qualisys_bridge/include
+      - ../CMakeLists.txt:/qualisys_ws/src/qualisys_bridge/CMakeLists.txt
+      - ../package.xml:/qualisys_ws/src/qualisys_bridge/package.xml
+      - ../ReadMe.md:/qualisys_ws/ReadMe.md
+      - ../.clang-format:/qualisys_ws/.clang-format
+      - ../LICENSE:/qualisys_ws/src/qualisys_bridge/LICENSE
+      - ../docker:/qualisys_ws/docker
+      - ../.vscode:/qualisys_ws/.vscode/
+      - ../.devcontainer:/qualisys_ws/.devcontainer
